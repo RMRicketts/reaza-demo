@@ -23,7 +23,6 @@ class SalesFigs extends React.Component {
       .reduce((p, n) => {
         return p + n;
       });
-    console.log(totalFig);
     return (
       <Grid container direction="column" spacing={2}>
         <Grid item>
