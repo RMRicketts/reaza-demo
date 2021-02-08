@@ -93,7 +93,7 @@ export default function CustomizedTables(props) {
               dsell = "";
               closeDate = "";
             } else {
-              dsell = Math.Floor(dsell / (24 * 60 * 60 * 1000));
+              dsell = Math.floor(dsell / (24 * 60 * 60 * 1000));
             }
             return (
               <StyledTableRow key={row.ListingId}>
