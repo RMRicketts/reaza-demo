@@ -16,6 +16,14 @@ var formatter = new Intl.NumberFormat("en-US", {
 class SalesFigs extends React.Component {
   render() {
     let { properties, memberKey } = this.props;
+    let totalFig = properties
+      .map(p => {
+        return p.ListPrice;
+      })
+      .reduce((p, n) => {
+        return p + n;
+      });
+    console.log(totalFig);
     return (
       <Grid container direction="column" spacing={2}>
         <Grid item>
@@ -24,15 +32,7 @@ class SalesFigs extends React.Component {
               <Typography>TOTAL PAST SALES</Typography>
             </Grid>
             <Grid item>
-              <Typography>
-                {formatter.format(
-                  properties.reduce((prev, next) => {
-                    let a = Number.isNaN(prev.ListPrice) ? 0 : prev.ListPrice;
-                    let b = Number.isNaN(next.ListPrice) ? 0 : next.ListPrice;
-                    return a + b;
-                  })
-                )}
-              </Typography>
+              <Typography>{formatter.format(totalFig)}</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -121,15 +121,7 @@ class SalesFigs extends React.Component {
               <Typography>TOTAL ACTIVE LISTING</Typography>
             </Grid>
             <Grid item>
-              <Typography>
-                {formatter.format(
-                  properties.reduce((prev, next) => {
-                    let a = Number.isNaN(prev.ListPrice) ? 0 : prev.ListPrice;
-                    let b = Number.isNaN(next.ListPrice) ? 0 : next.ListPrice;
-                    return a + b;
-                  })
-                )}
-              </Typography>
+              <Typography>{formatter.format(totalFig)}</Typography>
             </Grid>
           </Grid>
         </Grid>
