@@ -27,7 +27,9 @@ class SalesFigs extends React.Component {
               <Typography>
                 {formatter.format(
                   properties.reduce((prev, next) => {
-                    return prev.ListPrice + next.ListPrice;
+                    let a = Number.isNaN(prev.ListPrice) ? 0 : prev.ListPrice;
+                    let b = Number.isNaN(next.ListPrice) ? 0 : next.ListPrice;
+                    return a + b;
                   })
                 )}
               </Typography>
@@ -122,7 +124,9 @@ class SalesFigs extends React.Component {
               <Typography>
                 {formatter.format(
                   properties.reduce((prev, next) => {
-                    return prev.ListPrice + next.ListPrice;
+                    let a = Number.isNaN(prev.ListPrice) ? 0 : prev.ListPrice;
+                    let b = Number.isNaN(next.ListPrice) ? 0 : next.ListPrice;
+                    return a + b;
                   })
                 )}
               </Typography>
