@@ -183,7 +183,10 @@ class MemberProfile extends React.Component {
                     </Grid>
                     <Grid item>
                       <Typography variant="body1">
-                        Languages: English {member.MemberLanguages.join(" ")}
+                        Languages: English{" "}
+                        {member.MemberLanguages.filter(l => {
+                          return l.toLowerCase() !== "english";
+                        }).join(" ")}
                       </Typography>
                     </Grid>
                     <Grid item>
